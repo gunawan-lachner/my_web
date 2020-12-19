@@ -1,0 +1,204 @@
+<?php
+/**
+* @package Frontend-User-Access (com_frontend_user_access)
+* @version 2.1.0
+* @copyright Copyright (C) 2008 Carsten Engel. All rights reserved.
+* @license GPL versions free/trial/pro
+* @author http://www.pages-and-items.com
+* @joomla Joomla is Free Software
+*/
+
+//no direct access
+if(!defined('_VALID_MOS') && !defined('_JEXEC')){
+	die('Restricted access');
+}
+
+define('_fua_lang_usergroups',"anv&auml;ndargrupper");
+define('_fua_lang_users',"anv&auml;ndare");
+define('_fua_lang_user',"anv&auml;ndare");
+define('_fua_lang_component_access',"komponent beh&ouml;righet");
+define('_fua_lang_new',"ny");
+define('_fua_lang_delete',"radera");
+define('_fua_lang_save',"spara");
+define('_fua_lang_apply',"till&auml;mpa");
+define('_fua_lang_cancel',"avbryt");
+define('_fua_lang_usergroup_saved',"anv&auml;ndargrupp sparad");
+define('_fua_lang_select_item_to_delete',"v&auml;lj post att radera");
+define('_fua_lang_usergroup_deleted',"anv&auml;ndargrupp raderad");
+define('_fua_lang_component_access_saved',"komponent beh&ouml;righeter sparade");
+define('_fua_lang_userssaved',"anv&auml;ndare sparad");
+define('_fua_lang_please_select_user',"v&auml;lj en anv&auml;ndare");
+define('_fua_lang_user_saved',"anv&auml;ndare sparad");
+define('_fua_lang_user_edit',"redigera anv&auml;ndare");
+define('_fua_lang_name',"namn");
+define('_fua_lang_password',"l&ouml;senord");
+define('_fua_lang_usergroup',"anv&auml;ndargrupp");
+define('_fua_lang_new_user',"ny anv&auml;ndare");
+define('_fua_lang_usergroup_edit',"redigera anv&auml;ndargrupp");
+define('_fua_lang_name_usergroup',"namn anv&auml;ndargrupp");
+define('_fua_lang_usergroup_new',"anv&auml;ndargrupp ny");
+define('_fua_lang_no_access_component',"du har inte beh&ouml;righet till denna komponent");
+define('_fua_lang_sureuserdelete',"&auml;r du s&auml;ker att du vill radera den h&auml;r anv&auml;ndaren?");
+define('_fua_lang_nonameentered',"du m&aring;ste skriva in ett namn");
+define('_fua_lang_nousergroupselected',"du m&aring;ste v&auml;lja en anv&auml;ndargrupp");
+define('_fua_lang_suredeleteusergroup',"&auml;r du s&auml;ker att du vill radera de h&auml;r anv&auml;ndargrupperna?");
+define('_fua_lang_noselectusergroups',"du valde inte n&aring;gon anv&auml;ndargrupp");
+define('_fua_lang_noselectusers',"du valde inte n&aring;gon anv&auml;ndare");
+define('_fua_lang_suredeleteusers',"&auml;r du s&auml;ker att du vill radera de h&auml;r anv&auml;ndarna?");
+define('_fua_lang_nousergroups',"det finns inte n&aring;gra anv&auml;ndargrupper definierade");
+define('_fua_lang_nousers',"no users where found matching your search.<br /> Make new users with the ");
+define('_fua_lang_user_new',"ny anv&auml;ndare");
+define('_fua_lang_username',"anv&auml;ndarnamn");
+define('_fua_lang_configsaved',"konfigurering sparad");
+define('_fua_lang_showtab',"visa flik");
+define('_fua_lang_general',"allm&auml;nna inst&auml;llningar");
+define('_fua_lang_language',"spr&aring;k");
+define('_fua_lang_defaulttab',"standardflik");
+define('_fua_lang_useinpiuseraccess',"anv&auml;nd i Frontend-User-Access");
+define('_fua_lang_order',"order");
+define('_fua_lang_alias',"alias");
+define('_fua_lang_componentname',"komponentnamn");
+define('_fua_lang_use_componentaccess',"aktivera komponentbeh&ouml;righeter");
+define('_fua_lang_joomlagroup',"Joomlagrupp");
+define('_fua_lang_showjoomlagroup',"visa Joomlagrupp kombinationsruta");
+define('_fua_lang_showjoomlagroup_tip',"visa Joomlagrupp kombinationsruta n&auml;r en ny anv&auml;ndare skapas eller n&auml;r en anv&auml;ndare redigeras");
+define('_fua_lang_disableselectbox',"visa Joomlagrupp");
+define('_fua_lang_config',"konfigurering");
+define('_fua_lang_version',"version");
+define('_fua_lang_commercial',"kommersiell licens");
+define('_fua_lang_configwriteable',"&auml;r skrivbar");
+define('_fua_lang_confignotwriteable',"&auml;r inte skrivbar");
+define('_fua_lang_activate',"aktivera beh&ouml;righeter");
+define('_fua_lang_tabs',"flikar");
+define('_fua_lang_selectall',"[v&auml;lj alla]");
+define('_fua_lang_validkey',"licens nyckel");
+define('_fua_lang_enterkey',"skriv in licensnyckel");
+define('_fua_lang_keyisentered',"licensnyckel &auml;r registrerad");
+define('_fua_lang_keynotvalid',"licensnyckeln &auml;r inte godk&auml;nd");
+define('_fua_lang_validkey_tip',"F&ouml;r test och utveckling kan du anv&auml;nda den h&auml;r komponenten p&aring; 'localhost' i obegr&auml;nsad tid. F&ouml;r test och utveckling online &auml;r det en begr&auml;nsning p&aring; n&aring;gra veckor. Om du beh&ouml;ver mer tid f&ouml;r utveckling eller testning, ladda ner en ny version av komponenten ,insticksprogrammen och modulen och installera allt p&aring; nytt. Du beh&ouml;ver inte skapa nya anv&auml;ndargruppdata, dessa blir kvar i databasen. Om du tar en backup p&aring; konfigureringsfilen s&aring; beh&ouml;ver du inte konfigurera Frontend-User-Access igen.");
+define('_fua_lang_nocomponentactive',"Komponentens beh&ouml;righeter &auml;r inte aktiverade");
+define('_fua_lang_on',"p&aring;");
+define('_fua_lang_off',"av");
+define('_fua_lang_top',"topp");
+define('_fua_lang_statusbot',"status plugin");
+define('_fua_lang_botinstalled',"plugin &auml;r installerad");
+define('_fua_lang_botnotinstalled',"plugin &auml;r inte installerad");
+define('_fua_lang_botpublished',"plugin &auml;r publicerad");
+define('_fua_lang_botnotpublished',"plugin &auml;r inte publicerad");
+define('_fua_lang_not_published',"inte publicerad");
+define('_fua_lang_version_check',"versionskontroll");
+define('_fua_lang_email',"epost");
+define('_fua_lang_description',"beskrivning");	 
+define('_fua_lang_loggedin',"inloggad");	
+define('_fua_lang_loggedin_description',"alla inloggade anv&auml;ndare som inte &auml;r tilldelade n&aring;gon anv&auml;ndargrupp");	
+define('_fua_lang_not_loggedin',"inte inloggad");
+define('_fua_lang_not_loggedin_description',"alla anv&auml;ndare som inte &auml;r inloggade");
+define('_fua_lang_components_message_type',"meddelandetyp n&auml;r beh&ouml;righet saknas till komponenten");
+define('_fua_lang_components_message_type_alert',"javascript varning, som l&auml;nkar tillbaks till f&ouml;reg&aring;ende sida");
+define('_fua_lang_components_message_type_inline_text',"inline text");
+define('_fua_lang_item_access',"artikel beh&ouml;righet");
+define('_fua_lang_items_activate',"aktivera beh&ouml;righeter");
+define('_fua_lang_no_active_items',"Artikelbeh&ouml;righeter &auml;r inte aktiverade");
+//define('_fua_lang_item_message_type',"meddelandetyp n&auml;r beh&ouml;righet saknas till artikeln");
+define('_fua_lang_item_access_saved',"artikelbeh&ouml;righeter &auml;r sparade");
+define('_fua_lang_category_access',"kategoribeh&ouml;righet");
+define('_fua_lang_activatecategories',"aktivera kategori beh&ouml;righet restrictions");
+define('_fua_lang_no_categories_active',"Kategoribeh&ouml;righeter &auml;r inte aktiverade");
+define('_fua_lang_category_access_saved',"kategoribeh&ouml;righeter &auml;r sparade");
+define('_fua_lang_section_access',"sektionsbeh&ouml;righet");
+define('_fua_lang_sections_active',"aktivera sektionsbeh&ouml;righeter");
+define('_fua_lang_no_sections_active',"Sektionsbeh&ouml;righeter &auml;r inte aktiverade");
+define('_fua_lang_section_access_saved',"Sektionsbeh&ouml;righeter &auml;r sparade");
+define('_fua_lang_activate_in_config',"Du kan aktivera detta p&aring; konfigureringssidan.");
+define('_fua_lang_show_tab',"visa flikar");
+define('_fua_lang_url_access',"url-beh&ouml;righet");
+define('_fua_lang_url_active',"aktivera url-beh&ouml;righeter");
+define('_fua_lang_no_url_active',"url-beh&ouml;righeter &auml;r inte aktiverade");
+define('_fua_lang_url_access_saved',"url-beh&ouml;righeter &auml;r sparade");
+define('_fua_lang_sure_to_delete_url',"&auml;r du s&auml;ker att du vill radera den h&auml;r eller dessa URL(er)?");
+define('_fua_lang_no_urls_selected',"ingen URL vald f&ouml;r radering");
+define('_fua_lang_url_deleted',"URL raderad");
+define('_fua_lang_url_new',"ny URL");
+define('_fua_lang_new_urls_saved',"ny URL sparad");
+define('_fua_lang_url_new_info',"skriv bara det som finns efter dom&auml;nnamnet . exempel: 'index.php?option=com_content&view=category&layout=blog&id=36&Itemid=55' eller med SEF-urler 'index.php/lucid-dreams' ");
+define('_fua_lang_url_message_type',"meddelandetyp n&auml;r beh&ouml;righet saknas till url");
+define('_fua_lang_demo_days_left',"detta &auml;r en f&ouml;rs&ouml;ksversion. dagar &aring;terst&aring;r");
+define('_fua_lang_demo_days_left_tip',"Om du beh&ouml;ver mer tid f&ouml;r att utveckla eller testa den h&auml;r komponenten online utan en giltig licensnyckel, ladda bara ned en ny f&ouml;rs&ouml;ksversion och &aring;terinstallera komponenten, b&auml;gge insticksprogrammen och modulen f&ouml;r Frontend-User-Access. Du beh&ouml;ver inte registrera om beh&ouml;righeter f&ouml;r anv&auml;ndaregrupper. Om du tar en backup p&aring; konfigureringsfilen, s&aring; beh&ouml;ver du inte konfigurera om.");
+define('_fua_lang_items_info',"Beh&ouml;righet f&ouml;r s&auml;rskilda artiklar (com_content) p&aring; webbplatsen. Om anv&auml;ndaren saknar beh&ouml;righet visas f&ouml;ljande meddelande i artikelns inneh&aring;ll");
+define('_fua_lang_no_access_item',"Du saknar beh&ouml;righet f&ouml;r att visa den h&auml;r artikeln");
+define('_fua_lang_items_info2',"Du kan &auml;ndra det h&auml;r meddelandet i spr&aring;kfilen");
+define('_fua_lang_categories_info',"Beh&ouml;righet f&ouml;r alla artiklar i s&auml;rskilda kategorier (com_content) p&aring; webbplatsen");
+define('_fua_lang_sections_info',"Beh&ouml;righet f&ouml;r alla artiklar i s&auml;rskilda sektioner (com_content) p&aring; webbplatsen");
+define('_fua_lang_reverse_access',"omv&auml;nd beh&ouml;righet");
+define('_fua_lang_reverse_access_info',"Normalt, n&auml;r en kryssruta &auml;r markerad s&aring; har anv&auml;ndaregruppen beh&ouml;righet. Men n&auml;r omv&auml;nd beh&ouml;righet &auml;r aktiverad betyder en markerad kryssruta att beh&ouml;righet saknas och att alla omarkerade kryssrutor har beh&ouml;righet.");
+define('_fua_lang_components_info',"Webbplats komponent beh&ouml;righet");
+define('_fua_lang_reverse_access_warning',"Omv&auml;nd beh&ouml;righet &auml;r aktiverad");
+define('_fua_lang_usergroup_has_no_access',"anv&auml;ndaregruppen saknar beh&ouml;righet");
+define('_fua_lang_usergroup_has_access',"anv&auml;ndaregruppen &auml;r beh&ouml;rig");
+define('_fua_lang_message_type_none',"inneh&auml;llets text ers&auml;tts med");
+define('_fua_lang_messagetype_items',"meddelandetyp n&auml;r beh&ouml;righet saknas till artikel i full vy");
+define('_fua_lang_no_access_page',"beh&ouml;righet saknas f&ouml;r att visa den h&auml;r sidan");
+define('_fua_lang_messagetype_category',"meddelandetyp n&auml;r beh&ouml;righet saknas till kategori i kategori-blog eller kategori-list layout eller artikel i full vy");
+define('_fua_lang_messagetype_section',"meddelandetyp n&auml;r beh&ouml;righet saknas till artiklar i sektion, i sektion eller sektion-blog layout eller n&auml;r artikeln visas i full vy");
+define('_fua_lang_messagetype_archive',"anv&auml;nd inte arkivet and category-list!");
+define('_fua_lang_messagetype_archive_info',"Tyv&auml;rr, av ok&auml;nd anledning, anropas inte programmet f&ouml;r att begr&auml;nsa beh&ouml;righeter till artiklar p&aring; artikelniv&aring; av Joomla-systemet. D&auml;rf&ouml;r kan inte artikelbeh&ouml;righeter anv&auml;ndas i arkivet. N&auml;r man klickar p&aring; en artikel tas anv&auml;ndaren till artikeln i hel vy, i vilken artikelbeh&ouml;righeter fungerar. Problemet finns bara i arkivlistning. Att d&ouml;lja intro-texten &auml;r ett bra alternativ. I menyhanteraren n&auml;r man skapar eller redigerar ett artikelarkiv finns en inst&auml;llning f&ouml;r att d&ouml;lja artikelns intro-text vilket inte fungerar (Joomla 1.5.15 11-2009). Om du funderat p&aring; att anv&auml;nda artikelbeh&ouml;righeter och arkivet s&aring; avr&aring;der vi detta tills det ordnats i en ny version av Joomla.");
+define('_fua_lang_not_superadmin',"Alla anv&auml;ndare f&ouml;rutom 'super administrators' visas");
+define('_fua_lang_backend',"backend");
+define('_fua_lang_frontend',"frontend");
+define('_fua_lang_module_access',"modulbeh&ouml;righet");
+define('_fua_lang_use_moduleaccess',"aktivera modulbeh&ouml;righeter");
+define('_fua_lang_modules_message_type',"visa n&auml;r beh&ouml;righet saknas till modul");
+define('_fua_lang_hide_module',"d&ouml;lj modul");
+define('_fua_lang_modules_message_type_text',"visa det h&auml;r meddelandet i modulen");
+define('_fua_lang_no_access_module',"beh&ouml;righet saknas f&ouml;r att visa den h&auml;r modulen");
+define('_fua_lang_modules_info',"Frontend module beh&ouml;righet. Varje Frontend-User-Access modul kan ladda en annan modul. Det g&aring;r att l&auml;gga till det id fr&aring;n den modul som ska laddas i modulhanteraren. Du s&auml;tter beh&ouml;righeter endast p&aring; Frontend-User-Access moduler, vilka sedan fungerar som omslag f&ouml;r den modul som Frontend-User-Access modulen inneh&aring;ller");
+define('_fua_lang_no_modules_active',"modulbeh&ouml;righet &auml;r inte aktiverad");
+define('_fua_lang_module_loading_module',"fua-modul som laddar en modul");
+define('_fua_lang_no_module_assigned',"inget giltigt modul-id");
+define('_fua_lang_module_access_saved',"modulbeh&ouml;righeter sparade");
+define('_fua_lang_instructions',"instruktioner");
+define('_fua_lang_opens_in_popup',"&ouml;ppnas i popup");
+define('_fua_lang_display_articles',"visa n&auml;r beh&ouml;righet saknas till artikeln");
+define('_fua_lang_hide_article',"g&ouml;m artikeln");
+define('_fua_lang_display_other',"visa n&auml;r beh&ouml;righet saknas till artikeln i n&aring;gon annan layout");
+define('_fua_lang_see_article_access',"se option ");
+define('_fua_lang_on_tab',"p&aring; flik");
+define('_fua_lang_items_hide_info',"F&ouml;r att helt d&ouml;lja artikeln beh&ouml;ver Frontend-User-Access veta vilka CSS klassnamn som anv&auml;nds i din mall. Om du anv&auml;nder &auml;ndrad standardmall som f&ouml;ljt med i Joomlaleveransen, s&aring; klicka bara p&aring; en mallknapp h&auml;r nedan.");
+define('_fua_lang_items_hide_info2',"Om du anv&auml;nder n&aring;gon annan mall, beh&ouml;ver du kolla koden och skriva in klassnamnet h&auml;r. P&aring; din webbplats, g&aring; till en sida som visar en eller flera artiklar och kolla HTML-utseednet. Skriv in CSS-klassnamnen i l&auml;mpliga f&auml;lt.");
+define('_fua_lang_hide_wrapper_content',"element och klassnamns-omslag av inneh&aring;ll eller artikel-omslag. exempel:");
+define('_fua_lang_hide_wrappers_up',"omslag med element och klassnamn ovanf&ouml;r inneh&aring;lls-omslag<br />Ofta omslag f&ouml;r artikel-titeln eller omslag f&ouml;r knappar. Om det inte finns n&aring;gon, l&auml;mna tomt. Om det finns flera, sortera dem med b&ouml;rjan av inneh&aring;lls-omslag. exempel:");
+define('_fua_lang_hide_wrappers_down',"omslag med element och klassnamn nedanf&ouml;r inneh&aring;lls-omslag<br />Ofta omslag f&ouml;r artikel-separatorn. Om det inte finns n&aring;gon, l&auml;mna tomt. Om det finns flera, sortera dem med b&ouml;rjan av inneh&aring;lls-omslag. exempel:");
+define('_fua_lang_filter',"filter");
+define('_fua_lang_go',"g&aring;");
+define('_fua_lang_reset',"nollst&auml;ll");
+define('_fua_lang_all',"alla");
+define('_fua_lang_joomla10_only',"Den här artikeln är bara för Joomla 1.0");
+define('_fua_lang_not_in_free_version'," De här restriktionerna kan inte användas i denna gratisversion. Prova provversionen eller köp pro versionen!");
+define('_fua_lang_default_usergroup',"default användargrupp");
+define('_fua_lang_default_usergroup_info',"default användargrupp för nya användare. Fungerar med användargrupp för nya användare.Fungerar med Joomla user-manager, Joomla frontend, Community 
+Builder och fler.");
+define('_fua_lang_none',"ingen");
+define('_fua_lang_not_in_free',"Inte i denna fria version. Prova provversionen eller köp proversionen. ");
+################
+//added 2.1.0
+define('_fua_lang_menu_access',"meny/sidaccess");
+define('_fua_lang_use_menu_access',"aktivera meny/sidaccess restriktioner");
+define('_fua_lang_menu_info'," Om användare inte har någon access till en meny-item denna vill bli gömd i front end användar access modulen och användaren vill inte ha någon access till denna meny-item relaterade sida. Dessa restriktioner till sidan fungerar bara när itemid är inkluderad i urlen (eller i SEFs urls). Troligen vill dessa restriktioner inte fungera när item id är tagen från urlen. So ett råd är att använda sökordsvänliga urls så användare inte får problem med urls. .");
+define('_fua_lang_no_active_menu',"Restriktioner till meny-items/sidor är inte aktiverad");
+define('_fua_lang_menus',"menyer");
+define('_fua_lang_menu_access_saved',"meny/sid access sparad");
+define('_fua_lang_menuaccess_message_type',"meddelandetyp med ej access till meny-item/sida");
+define('_fua_lang_menuaccess_message_type_text'," bara den här texten");
+define('_fua_lang_menuaccess_message_type_text2'," med länk tillbaka till föregående sida");
+define('_fua_lang_cache',"Joomla cache");
+define('_fua_lang_cache_info',"Joomla cache skall vara ej aktiverad för innehålls av typ  (artiklar,kategorier,sektioner).");
+define('_fua_lang_cache_info2',"Du kan ställa in det i");
+define('_fua_lang_global_config',"Global configuration");
+define('_fua_lang_cache_info3',"on tab 'System'");
+define('_fua_lang_is_enabled',"är påslagen");
+define('_fua_lang_is_not_enabled',"är avslagen");
+define('_fua_lang_redirect_after_login',"omdirigera url efter login till frontsida för ");
+define('_fua_lang_example',"Exempel");
+define('_fua_lang_redirect_after_login_info',"Omdirigera url efter login av frontsidan för användare som inte är tilldelade någon 
+frontside användargrupp. För att omdirigera användare som är tilldelade en användargrupp var vänlig och skriv in den url för frontendanvändare-access-användargruppmanager för varje användargrupp.");
+?>

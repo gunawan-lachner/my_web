@@ -1,0 +1,134 @@
+/*greyboxshadow*/
+.module-greyboxshadow h3 {
+	margin-top: 5px;
+	padding-bottom: 0px;
+	color: #333;
+	font-size: 100%;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.module-greyboxshadow {
+	background: url(../images/greyboxshadow/module2-tr.png) 100% 0 no-repeat;
+	padding-bottom: 0px;
+	margin-bottom: 15px;
+}
+
+.module-greyboxshadow div {background: url(../images/greyboxshadow/module2-tl.png) 0 0 no-repeat;}
+.module-greyboxshadow div div {background: url(../images/greyboxshadow/module2-br.png) 100% 100% no-repeat;}
+
+.module-greyboxshadow div div div {
+	background: url(../images/greyboxshadow/module2-bl.png) 0 100% no-repeat;
+	padding: 20px 12px 20px 12px;
+}
+
+.module-greyboxshadow div div div div {
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+/*end of greyboxshadow*/
+
+/*yellowboxshadow*/
+.module-yellowboxshadow h3 {
+    margin-top: 5px;
+    padding-bottom: 0px;
+    color: #333;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.module-yellowboxshadow {
+    background: url(../images/yellowboxshadow/module-tr.png) 100% 0 no-repeat;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+}
+
+.module-yellowboxshadow div {background: url(../images/yellowboxshadow/module-tl.png) 0 0 no-repeat;}
+.module-yellowboxshadow div div {background: url(../images/yellowboxshadow/module-br.png) 100% 100% no-repeat;}
+
+.module-yellowboxshadow div div div {
+    background: url(../images/yellowboxshadow/module-bl.png) 0 100% no-repeat;
+    padding: 20px 12px 20px 12px;
+}
+
+.module-yellowboxshadow div div div div {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+/*end of yellowboxshadow*/
+
+/*css shadow*/
+#shadow-container {
+    position: relative;
+    left: 3px;
+    top: 3px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+#shadow-container .shadow2,
+#shadow-container .shadow3,
+#shadow-container .container {
+    position: relative;
+    left: -1px;
+    top: -1px;
+}
+
+#shadow-container .shadow1 {
+	background: #F1F0F1;
+}
+
+#shadow-container .shadow2 {
+	background: #DBDADB;
+}
+
+#shadow-container .shadow3 {
+	background: #B8B6B8;
+}
+
+#shadow-container .container {
+	background: #ffffff;
+	border: 1px solid #a5a5a5;
+	padding: 10px;	
+}
+/*End of css shadow*/
+
+/*blueboxshadow*/
+.module-blueboxshadow h3 {
+    margin-top: 5px;
+    padding-bottom: 0px;
+    color: #333;
+    font-size: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.module-blueboxshadow {
+    background: url(../images/blueboxshadow/module-tr.png) 100% 0 no-repeat;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+}
+
+.module-blueboxshadow div {background: url(../images/blueboxshadow/module-tl.png) 0 0 no-repeat;}
+.module-blueboxshadow div div {background: url(../images/blueboxshadow/module-br.png) 100% 100% no-repeat;}
+
+.module-blueboxshadow div div div {
+    background: url(../images/blueboxshadow/module-bl.png) 0 100% no-repeat;
+    padding: 20px 12px 20px 12px;
+}
+
+.module-blueboxshadow div div div div {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+/*end of blueboxshadow*/

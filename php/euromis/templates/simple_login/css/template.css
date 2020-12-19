@@ -1,0 +1,182 @@
+@import url(border.css);
+@import url(rounded.css);
+
+body { margin: 0; padding: 0; width: 100%; }
+a, a:visited { text-decoration: none; color: #CC66CC; }
+a:hover { color: #ff0000; text-decoration: underline; }
+h1 { font-size: 40px; }
+hr { border: 1px dotted; }
+
+.input {border: 1px solid #16387c; font-weight: bold; font-size: 12px;}
+
+#login {
+    width: 300px;
+    margin-bottom: -10px;
+}
+
+#login-page {   
+    margin: 0;
+    padding: 0;    
+    margin-right: 20px;    
+}
+
+#main {
+    margin: 0;
+    padding: 0;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;  
+}
+
+#top {
+    text-align: left;
+}
+
+#header {        
+    margin: 0;
+    padding: 0;    
+    height: 95px;              
+}
+
+#menu {      
+    margin: 0;
+    padding: 0;    
+    background-color: #eee;                    
+    height: 18px;
+}
+
+#content {
+    padding: 5px;
+	text-align: left;
+}
+
+#mainbody {
+    margin: 0;
+    padding: 0;    
+    background-color: #eee;                        
+}
+
+#container {
+    width:100%;
+    margin:0 auto;
+    padding: 0;
+}
+
+#row {
+    width: 100%;
+}
+
+#column {
+    width: 50%;      
+    float: left;     
+    margin-top: 5px;
+}
+
+#footer {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    color: #bbb;
+    padding: 5px;
+}
+
+#editform {
+    margin-top: 20px;
+    background-color: #EEE;
+}
+
+#date_small {
+    width: 80px;
+    font-size: 10px;
+}
+
+#simple-clock {       
+    position: absolute;
+    margin-left: -60px;
+    margin-top: 50px;
+    border: none;
+    font-weight: bold;
+}                        
+
+#page_title {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin: 10px;
+}
+
+.clear {clear: both;}
+.inside {width: 100%; margin: 0; padding: 0;}
+.inside-w50-l {float: left; text-align: left; margin-left: 20px;}
+.inside-w50-r {float: right; text-align: right; margin-right: 20px;}
+.inside-w50-r-image {float: right; text-align: right; margin-right: 10px; background: url(../images/LOGO-2.jpg) 0 0 no-repeat; width: 500px; height: 85px;}
+
+.logo-login {
+    background: url(../images/logo.png) 0 0 no-repeat;
+    margin-top: 50px;
+    width: 250px;
+    height: 150px;
+}
+
+.logo-page img {
+    margin-left: 40px;
+    margin-top: 20px;
+	float: left; 
+}
+
+.logo-title img {
+    position: absolute;
+    z-index: -1;
+}
+    
+/*** Table Styles ***/
+
+#table_monitoring {
+    
+}
+
+#table_monitor_row_offline {
+    color: black;
+    background-color: red;
+}
+
+#table_monitor_row_cash_low {
+    color: black;
+    background-color: yellow;
+}
+
+#table_monitoring_header {
+    font-weight: bold; 
+    color: black;
+    background-color: white;
+}
+
+/*** Table Styles ***/
+
+/*** Page Styles ***/
+
+#page0 {
+    width: 550px;
+}
+
+#page_title {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: verdana;
+}
+
+.ui-progressbar-value { background-image: url(../images/pbar-ani.gif); }
+
+#list, #pager {
+    cursor: pointer;
+}
+
+.select_monitoring {
+    font-size: 10px;
+}
+
+.alert_monitoring {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*** Page Styles ***/

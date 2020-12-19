@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.5/template-install.dtd">
+<install version="1.5" type="template">
+  <name>simple_login</name>
+  <creationDate>January 2010</creationDate>
+  <author>lordsanjay</author>
+  <copyright>GPL</copyright>
+  <authorEmail>lordsanjay@gmail.com</authorEmail>
+  <authorURL>lordsanjay</authorURL>
+  <version>1.0</version>
+  <description>Fork from JClean template.</description>
+  <files>
+    <filename>index.php</filename>
+    <filename>templateDetails.xml</filename>
+    <filename>template_thumbnail.png</filename>
+    <filename>favicon.ico</filename>
+    <filename>images/logo.png</filename>
+    <filename>images/logo-small.png</filename>
+    <filename>images/blank.gif</filename>
+    <filename>images/LOGO-1.png</filename>
+    <filename>images/LOGO-2.jpg</filename>
+    <filename>images/greyboxshadow/module2-bl.png</filename>
+    <filename>images/greyboxshadow/module2-br.png</filename>
+    <filename>images/greyboxshadow/module2-tl.png</filename>
+    <filename>images/greyboxshadow/module2-tr.png</filename>
+    <filename>images/yellowboxshadow/module-bl.png</filename>
+    <filename>images/yellowboxshadow/module-br.png</filename>
+    <filename>images/yellowboxshadow/module-tl.png</filename>
+    <filename>images/yellowboxshadow/module-tr.png</filename>  
+    <filename>css/border.css</filename>
+    <filename>css/template.css</filename>
+  </files>
+  <positions>
+    <position>login</position>
+    <position>menu</position>
+    <position>login-page</position>
+    <position>clock</position>
+    <position>header</position>
+    <position>top</position>	
+    <position>content-1</position>	
+    <position>footer</position>	
+    <position>hidden</position>
+  </positions>
+</install>

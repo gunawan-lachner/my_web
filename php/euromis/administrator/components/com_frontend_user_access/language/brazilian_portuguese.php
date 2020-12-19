@@ -1,0 +1,203 @@
+﻿<?php
+/**
+* @package Frontend-User-Access (com_frontend_user_access)
+* @version 2.1.0
+* @copyright Copyright (C) 2008 Carsten Engel. All rights reserved.
+* @license GPL versions free/trial/pro
+* @author http://www.pages-and-items.com
+* @joomla Joomla is Free Software
+*/
+
+//no direct access
+if(!defined('_VALID_MOS') && !defined('_JEXEC')){
+	die('Restricted access');
+}
+
+define('_fua_lang_usergroups',"grupos de usuários");
+define('_fua_lang_users',"usuários");
+define('_fua_lang_user',"users");
+define('_fua_lang_component_access',"acesso a componetes");
+define('_fua_lang_new',"novo");
+define('_fua_lang_delete',"excluir");
+define('_fua_lang_save',"salvar");
+define('_fua_lang_apply',"aplicar");
+define('_fua_lang_cancel',"cancelar");
+define('_fua_lang_usergroup_saved',"salvar grupo de usuário");
+define('_fua_lang_select_item_to_delete',"selecionar item para excluir");
+define('_fua_lang_usergroup_deleted',"grupo de usuário excluído");
+define('_fua_lang_component_access_saved',"restrições de acesso a componente salvo");
+define('_fua_lang_userssaved',"usuário(s) salvo");
+define('_fua_lang_please_select_user',"por favor, selecione um usuário");
+define('_fua_lang_user_saved',"usuário salvo");
+define('_fua_lang_user_edit',"editar usuário");
+define('_fua_lang_name',"nome");
+define('_fua_lang_password',"senha");
+define('_fua_lang_usergroup',"grupo de usuário");
+define('_fua_lang_new_user',"novo usuário");
+define('_fua_lang_usergroup_edit',"editar grupo de usuário");
+define('_fua_lang_name_usergroup',"nome do grupo de usuários");
+define('_fua_lang_usergroup_new',"novo grupo de usuários");
+define('_fua_lang_no_access_component',"você não tem permissão para acessar esse componente");
+define('_fua_lang_sureuserdelete',"você tem certeza que deseja excluir esse usuário?");
+define('_fua_lang_nonameentered',"você necessita digitar um nome");
+define('_fua_lang_nousergroupselected',"você necessita selecionar um grupo de usuários");
+define('_fua_lang_suredeleteusergroup',"você tem certeza que quer excluir esse(s) grupo(s) de usuário(s)?");
+define('_fua_lang_noselectusergroups',"você não selecionou nenhum grupo(s)");
+define('_fua_lang_noselectusers',"você não selecionou nenhum usuário(s)");
+define('_fua_lang_suredeleteusers',"você tem certeza que deseja excluir esse(s) usuário(s)?");
+define('_fua_lang_nousergroups',"não existem grupos de usuários definidos");
+define('_fua_lang_nousers',"nenhum usuário foi encontrado de acordo com seu critério de pesquisa.<br /> Crie novos usuários com  ");
+define('_fua_lang_user_new',"novo usuário");
+define('_fua_lang_username',"nome de usuário");
+define('_fua_lang_configsaved',"configuração salva");
+define('_fua_lang_showtab',"mostrar aba");
+define('_fua_lang_general',"configurações gerais");
+define('_fua_lang_language',"idioma");
+define('_fua_lang_defaulttab',"aba padrão");
+define('_fua_lang_useinpiuseraccess',"usar no Frontend-User-Access");
+define('_fua_lang_order',"ordem");
+define('_fua_lang_alias',"alias");
+define('_fua_lang_componentname',"nome-do-componente");
+define('_fua_lang_use_componentaccess',"ativar restrições de acesso a componentes");
+define('_fua_lang_joomlagroup',"grupo Joomla");
+define('_fua_lang_showjoomlagroup',"mostrar caixa de seleção dos grupos Joomla");
+define('_fua_lang_showjoomlagroup_tip',"mostrar caixa de seleção dos grupos Joomla quando criar um novo usuário ou quando modificar um usuário existente");
+define('_fua_lang_disableselectbox',"apenas mostrar grupos Joomla");
+define('_fua_lang_config',"configuração");
+define('_fua_lang_version',"versão");
+define('_fua_lang_commercial',"licensa comercial");
+define('_fua_lang_configwriteable',"é gravável");
+define('_fua_lang_confignotwriteable',"não é gravável");
+define('_fua_lang_activate',"ativar restrições");
+define('_fua_lang_tabs',"abas");
+define('_fua_lang_selectall',"[selecionar todas]");
+define('_fua_lang_validkey',"chave da licensa");
+define('_fua_lang_enterkey',"digite a chave");
+define('_fua_lang_keyisentered',"chave foi inserida");
+define('_fua_lang_keynotvalid',"chave não é válida");
+define('_fua_lang_validkey_tip',"Para teste e desenvolvimento, você pode usar esse componente em 'localhost' por uma duração ilimitada. Para testes e desenvolvimento online essa extensão é limitada a algumas semanas. Se você necessita mais tempo desenvolvendo ou testando, baixe uma nova versão do componente, módulos e plugins e reinstale todos eles. Não é necessário re-cadastrar grupos de usuários, eles vão continuar no banco de dados. Se você efetuar um backup dos arquivos de configuração você não necessita reconfigurar o Frontend-User-Access.");
+define('_fua_lang_nocomponentactive',"Restrições aos componentes não está ativado");
+define('_fua_lang_on',"ligado");
+define('_fua_lang_off',"desligado");
+define('_fua_lang_top',"topo");
+define('_fua_lang_statusbot',"status plugin");
+define('_fua_lang_botinstalled',"plugin está instalado");
+define('_fua_lang_botnotinstalled',"plugin não está instalado");
+define('_fua_lang_botpublished',"plugin está publicado");
+define('_fua_lang_botnotpublished',"plugin nâo está publicado");
+define('_fua_lang_not_published',"não publicado");
+define('_fua_lang_version_check',"checar versão");
+define('_fua_lang_email',"email");
+define('_fua_lang_description',"descrição");	 
+define('_fua_lang_loggedin',"logado");	
+define('_fua_lang_loggedin_description',"todos usuários logados que não foram incluídos em nenhum grupo de usuários");	
+define('_fua_lang_not_loggedin',"não logado");
+define('_fua_lang_not_loggedin_description',"todos usuários que não estão logados");
+define('_fua_lang_components_message_type',"tipo de mensagem quando não acessar o componente");
+define('_fua_lang_components_message_type_alert',"alerta de javascript, que conecta com a página anterior");
+define('_fua_lang_components_message_type_inline_text',"inline text");
+define('_fua_lang_item_access',"acesso aos artigos");
+define('_fua_lang_items_activate',"ativar restrições a itens");
+define('_fua_lang_no_active_items',"Restrições aos artigos não está ativado");
+//define('_fua_lang_item_message_type',"message type when user has no access to article");
+define('_fua_lang_item_access_saved',"restrições aos artigos foram salvos");
+define('_fua_lang_category_access',"acesso a categorias");
+define('_fua_lang_activatecategories',"ativar restrições de acesso a categorias");
+define('_fua_lang_no_categories_active',"Restrições de acesso a categorias não está ativado");
+define('_fua_lang_category_access_saved',"restrições de acesso a categorias foi salvo");
+define('_fua_lang_section_access',"acesso a seções");
+define('_fua_lang_sections_active',"ativar restrições de acesso a seções");
+define('_fua_lang_no_sections_active',"Restrições de acesso a seções não está ativado");
+define('_fua_lang_section_access_saved',"restrições de acesso a seções foi salvo");
+define('_fua_lang_activate_in_config',"Você pode ativar isto na página de configurações.");
+define('_fua_lang_show_tab',"mostrar abas");
+define('_fua_lang_url_access',"url de acesso");
+define('_fua_lang_url_active',"ativar restrições de acesso a url");
+define('_fua_lang_no_url_active',"restrições de acesso a url não estão ativadas");
+define('_fua_lang_url_access_saved',"restrições de acesso a url foi salvo");
+define('_fua_lang_sure_to_delete_url',"você tem certeza que deseja excluir essa(s) url(s)?");
+define('_fua_lang_no_urls_selected',"nenhuma URL(s) selecionada para exclusão");
+define('_fua_lang_url_deleted',"URL(s) excluídas");
+define('_fua_lang_url_new',"nova URL(s)");
+define('_fua_lang_new_urls_saved',"nova URL(s) salva");
+define('_fua_lang_url_new_info',"apenas entre o que vem logo após o nome do domínio. examplo: 'index.php?option=com_content&view=category&layout=blog&id=36&Itemid=55' ou quando usando SEF-url's 'index.php/lucid-dreams' ");
+define('_fua_lang_url_message_type',"tipo de mensagem quando não tiver acesso a url");
+define('_fua_lang_demo_days_left',"essa é uma versão de teste. dias restando");
+define('_fua_lang_demo_days_left_tip',"Para teste e desenvolvimento, você pode usar esse componente em 'localhost' por uma duração ilimitada. Para testes e desenvolvimento online essa extensão é limitada a algumas semanas. Se você necessita mais tempo desenvolvendo ou testando, baixe uma nova versão do componente, módulos e plugins e reinstale todos eles. Não é necessário re-cadastrar grupos de usuários, eles vão continuar no banco de dados. Se você efetuar um backup dos arquivos de configuração você não necessita reconfigurar o Frontend-User-Access.");
+define('_fua_lang_items_info',"Acesso a artigos do Frontend para específicos artigos (com_content). Se o usuário não tiver acesso, a seguinte mensagem será mostrada no conteúdo do artigo");
+define('_fua_lang_no_access_item',"Você não tem permissão para acessar esse artigo");
+define('_fua_lang_items_info2',"Você pode alterar essa mensagem no arquivo de idiomas");
+define('_fua_lang_categories_info',"Acesso a artigos do Frontend para todos artigos de uma categoria específica (com_content)");
+define('_fua_lang_sections_info',"Acesso a artigos do Frontend para todos artigos de uma seção específica (com_content)");
+define('_fua_lang_reverse_access',"acesso reverso");
+define('_fua_lang_reverse_access_info',"Normalmente, quando uma caixa de seleção está marcada, o grupo de usuários tem acesso. Quando o acesso reverso é ativado, as caixas de seleção tornam-se restrições e todas caixas não selecionadas tornam-se acessíveis");
+define('_fua_lang_components_info',"Acesso a componente do Frontend");
+define('_fua_lang_reverse_access_warning',"Acesso reverso está ativo");
+define('_fua_lang_usergroup_has_no_access',"grupo de usuários NÃO tem acesso");
+define('_fua_lang_usergroup_has_access',"grupo de usuários tem acesso");
+define('_fua_lang_message_type_none',"texto-conteúdo será trocado por");
+define('_fua_lang_messagetype_items',"tipo de mensagem quando não ha acesso a artigos em full view");
+define('_fua_lang_no_access_page',"você não tem permissão de ver essa página");
+define('_fua_lang_messagetype_category',"tipo de mensagem quando não há acesso a categoria em blog de categoria ou lista de categoria ou artigo em full view");
+define('_fua_lang_messagetype_section',"tipo de mensagem quando não há acesso a artigos em seção ou blog de seção ou quando é visualizado um artigo em full view");
+define('_fua_lang_messagetype_archive',"não use em artigos arquivados ou lista de categoria!");
+define('_fua_lang_messagetype_archive_info',"Infelizmente, por razões desconhecidas, o bot para restringir acesso a artigos não consegue ser chamado por artigos arquivados nem por lista de categoria no nível de artigo pelo sistema do Joomla!. Então nenhuma restrição a artigos pode ser aplicado a artigos arquivados ou lista de categoria. Quando um artigo é clicado, o usuário é levado ao artigo em full-view, onde a restrição do artigo funciona. Então o problema ocorre apenas na lista de artigos arquivados. Esconder o texto de introdução pode ser uma boa alternativa. No gerenciador de menu, quando criar ou editar um artigo arquivado, existe a opção de esconder o texto de introdução dos artigos, mas isso não funciona (Joomla 1.5.15 11-2009). Então se você está pensando em restringir o acesso em artigos arquivados, você está fortemente avisado para não fazer, a não ser que isso seja concertado em versões futuras do Joomla.");
+define('_fua_lang_not_superadmin',"Todos usuários, exceto 'super administradores' são mostrados");
+define('_fua_lang_backend',"backend");
+define('_fua_lang_frontend',"frontend");
+define('_fua_lang_module_access',"acesso a módulos");
+define('_fua_lang_use_moduleaccess',"ativar restrição de acesso a  módulos");
+define('_fua_lang_modules_message_type',"mostrar quando não há acesso ao módulo");
+define('_fua_lang_hide_module',"ocultar módulo");
+define('_fua_lang_modules_message_type_text',"mostrar essa mensagem no módulo");
+define('_fua_lang_no_access_module',"você não tem permissão para ver esse módulo");
+define('_fua_lang_modules_info',"Acesso ao módulo no Frontend. Cada módulo Frontend-User-Access pode carregar um outro módulo. Você pode inserir o id de cada módulo que quer carregar pelo gerenciador de módulo. Você pode restringir o acesso apenas em módulos    Frontend-User-Access, que funcionará como um user-access wrapper para o conteúdo do módulo");
+define('_fua_lang_no_modules_active',"module access restrictions are not activated");
+define('_fua_lang_module_loading_module',"carregando módulo Frontend-User-Access");
+define('_fua_lang_no_module_assigned',"nenhum id de módulo válido inserido");
+define('_fua_lang_module_access_saved',"acesso ao módulo salvo");
+define('_fua_lang_instructions',"instruções");
+define('_fua_lang_opens_in_popup',"abrir em popup");
+define('_fua_lang_display_articles',"mostrar quando não acessar a um artigo");
+define('_fua_lang_hide_article',"esconder artigo");
+define('_fua_lang_display_other',"mostrar quando não tiver acesso ao artigo em nenhum outro layout");
+define('_fua_lang_see_article_access',"ver opções ");
+define('_fua_lang_on_tab',"na aba");
+define('_fua_lang_items_hide_info',"Para esconder um artigo completamente, Frontend-User-Access necessita saber quais classes de nome do CSS são usadas em seu template. Se você está usando variação do template padrão provido pelo Joomla, apenas precione o botão de template abaixo.");
+define('_fua_lang_items_hide_info2',"Se você está usando qualquer outro template, você necessita checar o código e inserir a classe de nomes aqui. No seu website, vá na página onde mostra um ou mais artigos e cheque o código HTML. Insira a classe de nomes CSS nos campos fornecidos.");
+define('_fua_lang_hide_wrapper_content',"elemento e classe de nome wrapper do conteúdo ou artigo-wrapper. exemplo:");
+define('_fua_lang_hide_wrappers_up',"elemento e classe de nome irmãos a cima do conteúdo<br />Frequentemente o wrapper para o título do artigo ou botão wrapper. Se não existe um, deixe vazio. Se existe mais, ordene eles iniciando pelo conteúdo wrapper. exemplo:");
+define('_fua_lang_hide_wrappers_down',"elemento e classe de nome irmãos abaixo do conteúdo  wrapper.<br />Frequentemente o wrapper paea o  separados do artigo. Se não existe um, deixe vazio. Se existe mais, ordene eles iniciando pelo conteúdo wrapper. exemplo:");
+define('_fua_lang_filter',"filtro");
+define('_fua_lang_go',"vai");
+define('_fua_lang_reset',"reset");
+define('_fua_lang_all',"todos");
+define('_fua_lang_joomla10_only',"TEsssa configuração é apenas para Joomla 1.0");
+define('_fua_lang_not_in_free_version',"Essas restrições não podem ser usadas nessa versão free. Tente a versão de teste ou compre a versão pro");
+define('_fua_lang_default_usergroup',"grupo padrão"); 
+define('_fua_lang_default_usergroup_info',"grupo padrão para novos usuários.
+Funciona com os grupos do gerenciador de usuários do Joomla, Joomla
+frontend, Community Builder e mais."); 
+define('_fua_lang_none',"nenhum"); 
+define('_fua_lang_not_in_free',"Não existe nessa versão free. Tente a versão
+trial ou compre a versão pro"); ################ //added 2.1.0
+define('_fua_lang_menu_access',"Acesso a menu/pagina "); 
+define('_fua_lang_use_menu_access',"ativar restrições de acesso a menu/pagina "); 
+define('_fua_lang_menu_info',"Se um usuário não tem acesso ao item de menu, o item será oculto no Frontend-User-Access menu-module e o usuário não terá acesso ao item de menu relativo aquela página. As restrições a página somente funcionam quando o Itemid é incluido na url (ou em SEF-urls). Obviamente, as restrições não irão funcionar se o Itemid for removido da url. Então você é aconselhado a usar search-engine-friendly urls, dessa forma os usuários não podem tampara url.");
+define('_fua_lang_no_active_menu',"Restrições aos itens de menu/páginas não está ativado"); 
+define('_fua_lang_menus',"menus");
+define('_fua_lang_menu_access_saved',"Acesso ao menu/pagina salvo"); 
+define('_fua_lang_menuaccess_message_type',"mensagem mostyrada quando não há acesso ao item de menu/página"); 
+define('_fua_lang_menuaccess_message_type_text',"apenas esse texto"); 
+define('_fua_lang_menuaccess_message_type_text2',"com link voltar para a página anterior"); 
+define('_fua_lang_cache',"Joomla cache"); 
+define('_fua_lang_cache_info',"Joomla cache deve ser desabilitado para restrição de conteúdos (artigos, categorias, seções)."); 
+define('_fua_lang_cache_info2',"Você pode setar isso nas"); 
+define('_fua_lang_global_config',"configurações gerais"); 
+define('_fua_lang_cache_info3',"on tab 'Sistema'"); 
+define('_fua_lang_is_enabled',"está habilitado"); 
+define('_fua_lang_is_not_enabled',"está desabilitado"); 
+define('_fua_lang_redirect_after_login',"redirecionar url depois de login no frontend"); 
+define('_fua_lang_example',"exemplo");
+define('_fua_lang_redirect_after_login_info',"redireciona url após login no frontend do site, para usuários que não foram associados a nenhum grupo de acesso. Para redirecionar usuários que foram associados a algum grupo de acesso, digite a url no Frontend-User-Access-usergroup-manager para cada grupo de usuários");
+?>

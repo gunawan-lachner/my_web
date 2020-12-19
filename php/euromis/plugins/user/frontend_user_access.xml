@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="user">
+	<name>Frontend-User-Access (user)</name>
+	<author>Carsten Engel</author>
+	<creationDate>august 2009</creationDate>
+	<copyright>Copyright 2009 (C) Carsten Engel - Engelweb. All rights reserved.</copyright>	
+	<authorEmail></authorEmail>
+	<authorUrl>www.pages-and-items.com</authorUrl>
+	<version>1.1.0</version>
+	<description>Sets the default Frontend-User-Access usergroup for new users as set in the Frontend-User-Access configuration.</description>
+	<files>
+		<filename plugin="frontend_user_access">frontend_user_access.php</filename>
+	</files>
+	<params/>
+</install>

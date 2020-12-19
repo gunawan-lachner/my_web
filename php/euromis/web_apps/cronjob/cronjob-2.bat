@@ -1,0 +1,1 @@
+c:\wamp\bin\php\php5.3.5\php-win.exe -q c:\wamp\www\euromis\web_apps\cronjob\cronjob-2.php

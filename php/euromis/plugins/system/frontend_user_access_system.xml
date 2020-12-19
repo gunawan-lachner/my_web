@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>System - Frontend-User-Access</name>
+	<author>Carsten Engel</author>
+	<creationDate>december 2008</creationDate>
+	<copyright>Copyright (C) 2008 Carsten Engel, pages-and-items</copyright>
+	<license>GPL</license>
+	<authorEmail>-</authorEmail>
+	<authorUrl>www.pages-and-items.com</authorUrl>
+	<version>2.1.1</version>
+	<description>Enforces various access restrictions as set in component Frontend-User-Access. Don't forget to ENABLE this plugin. Make sure this plugin is last in the plugin order.</description>
+	<files>
+		<filename plugin="frontend_user_access_system">frontend_user_access_system.php</filename>		
+	</files>	
+</install>
